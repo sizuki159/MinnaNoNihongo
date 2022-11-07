@@ -16,9 +16,9 @@ class CreateKanjisTable extends Migration
         Schema::create('kanjis', function (Blueprint $table) {
             $table->id();
             $table->longText('kanji');
-            $table->longText('cn_vn_word');
-            $table->longText('meaning_vi');
-            $table->longText('meaning_en');
+            $table->longText('cn_vn_word')->nullable();
+            $table->longText('meaning_vi')->nullable();
+            $table->longText('meaning_en')->nullable();
             $table->string('status')->default('active');
 
             $table->unsignedBigInteger('level_id');

@@ -17,8 +17,8 @@ class CreateGrammarsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('status')->default('active');
-            $table->longText('content');
-            $table->longText('meaning');
+            $table->longText('content')->nullable();
+            $table->longText('meaning')->nullable();
 
             $table->unsignedBigInteger('lesson_id');
             $table->foreign('lesson_id')->references('id')->on('lessons')->cascadeOnDelete();

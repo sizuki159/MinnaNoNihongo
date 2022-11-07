@@ -12,6 +12,7 @@ class Vocabulary extends Model
     protected $fillable = [
         'vocabulary',
         'kanji',
+        'cn_vn_word',
         'meaning_vi',
         'meaning_en',
         'status',
