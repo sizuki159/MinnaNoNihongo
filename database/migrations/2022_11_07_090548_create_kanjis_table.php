@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVocabulariesTable extends Migration
+class CreateKanjisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateVocabulariesTable extends Migration
      */
     public function up()
     {
-        Schema::create('vocabularies', function (Blueprint $table) {
+        Schema::create('kanjis', function (Blueprint $table) {
             $table->id();
-            $table->longText('vocabulary');
             $table->longText('kanji');
+            $table->longText('cn_vn_word');
             $table->longText('meaning_vi');
             $table->longText('meaning_en');
             $table->string('status')->default('active');
-            $table->unsignedBigInteger('lesson_id');
-            $table->foreign('lesson_id')->references('id')->on('lessons')->cascadeOnDelete();
+
+            $table->unsignedBigInteger('level_id');
+            $table->foreign('level_id')->references('id')->on('levels')->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -33,6 +34,6 @@ class CreateVocabulariesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vocabularies');
+        Schema::dropIfExists('kanjis');
     }
 }
