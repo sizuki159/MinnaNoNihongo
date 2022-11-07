@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Grammar extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'status',
+        'content',
+        'meaning',
+        'lesson_id'
+    ];
 }
